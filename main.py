@@ -45,6 +45,7 @@ while True:
     break
   elif dia == "todos":
     print("\n\n",segunda, "\n", terça,"\n", quarta, "\n", quinta,"\n", sexta,"\n\n")
+    break
   else:
     print("Dia inválido, tente novamente. \n")
     continue
