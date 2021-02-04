@@ -1,50 +1,85 @@
-#trabalho do horário das aulas
+# trabalho do horário das aulas
 
-''' Alunos: 
-José Alan De Aquino Santos
-Nikeldon Carvalho da Silva
-'''
-
-#cronograma
-
-#Variáveis
-segunda = ("Segunda\n\n07:00 - 07:50 : SEM AULA\n07:50 - 08:40 : ESAR\n08:40 - 09:30 : ESAR\n09:50 - 10:40 : GEOG\n10:40 - 11:30 : GEOG\n11:30 - 12:20 : SEM AULA\n\n")
-
-terça = ("Terça\n\n07:00 - 07:50 : SEM AULA\n07:50 - 08:40 : SEM AULA\n08:40 - 09:30 : INPG\n09:50 - 10:40 : LPOR\n10:40 - 11:30 : LPOR\n11:30 - 12:20 : SEM AULA\n\n")
-
-quarta = ("Quarta\n\n07:00 - 07:50 : SEM AULA\n07:50 - 08:40 : SEM AULA\n08:40 - 09:30 : BIOL\n09:50 - 10:40 : BIOL\n10:40 - 11:30 : FILO\n11:30 - 12:20 : FILO\n\n")
-
-quinta = ("Quinta\n\n07:00 - 07:50 : SEM AULA\n07:50 - 08:40 : SEM AULA\n08:40 - 09:30 : SEM AULA\n09:50 - 10:40 : INPG\n10:40 - 11:30 : FISC\n11:30 - 12:20 : FISC\n\n")
-
-sexta = ("Sexta\n\n07:00 - 07:50 : SEM AULA\n07:50 - 08:40 : LING\n08:40 - 09:30 : LING\n09:50 - 10:40 : QUIM\n10:40 - 11:30 : QUiM\n11:30 - 12:20 : LPOR\n\n")
+# Alunos:
+# José Alan De Aquino Santos
+# Nikeldon Carvalho da Silva
 
 
-#estrutura de repetição
-while True:
-  dia = input("Qual dia você quer saber o horário? ")
-  if dia == 'segunda':
-    print(segunda)
-    break
-  elif dia == 'terça':
-    print(terça)
-    break
-  elif dia == 'quarta':
-    print(quarta)
-    break
-  elif dia == 'quinta':
-    print(quinta)
-    break
-  elif dia == 'sexta':
-    print(sexta)
-    break
-  elif dia == "sabado":
-    print("final de semana")
-    break
-  elif dia == "domingo":
-    print("final de semana")
-    break
-  elif dia == "todos":
-    print("\n\n",segunda, "\n", terça,"\n", quarta, "\n", quinta,"\n", sexta,"\n\n")
-  else:
-    print("Dia inválido, tente novamente. \n")
-    continue
+# horas das aulas
+
+h1 = "07:00 - 07:50 : "
+h2 = "07:50 - 08:40 : "
+h3 = "08:40 - 09:30 : "
+h4 = "09:50 - 10:40 : "
+h5 = "10:40 - 11:30 : "
+h6 = "11:30 - 12:20 : "
+
+
+# matérias
+
+a0 = "Sem Aula"
+a1 = "ESAR"
+## a0 = "GEOG"
+a3 = "INPG"
+a4 = "LPOR"
+a5 = "BIOL"
+a6 = "FILO"
+## a0 = "FISC"
+a8 = "LING"
+a9 = "QUIM"
+
+
+# cronograma
+
+segunda = f"\nSegunda:\n\n{h1}{a0}\n{h2}{a1}\n{h3}{a1}\n{h4}{a0}\n{h5}{a0}\n{h6}{a0}\n\n"
+terça = f"\nTerça:\n\n{h1}{a0}\n{h2}{a0}\n{h3}{a3}\n{h4}{a4}\n{h5}{a4}\n{h6}{a0}\n\n"
+quarta = f"\nQuarta:\n\n{h1}{a0}\n{h2}{a0}\n{h3}{a5}\n{h4}{a5}\n{h5}{a6}\n{h6}{a6}\n\n"
+quinta = f"\nQuinta:\n\n{h1}{a0}\n{h2}{a0}\n{h3}{a0}\n{h4}{a3}\n{h5}{a0}\n{h6}{a0}\n\n"
+sexta = f"\nSexta:\n\n{h1}{a0}\n{h2}{a8}\n{h3}{a8}\n{h4}{a9}\n{h5}{a9}\n{h6}{a4}\n\n"
+
+
+# estrutura e execução
+
+num = input("Comandos do programa:\n\"cronograma\"\tinterface do horário.\n\"notas\"\t\t\tinterface das notas.\n\"sair\"\t\t\tfechar programa.\n")
+
+if num == "cronograma":
+  while True:
+    dia = input("Qual dia da semana você quer saber o horário?\n")
+    if dia == "segunda":
+      print(segunda)
+    elif dia == "terça":
+      print(terça)
+    elif dia == "quarta":
+      print(quarta)
+    elif dia == "quinta":
+      print(quinta)
+    elif dia == "sexta":
+      print(sexta)
+    elif dia == "sabado":
+      print("\nfinal de semana\n")
+    elif dia == "domingo":
+      print("\nfinal de semana\n")
+    elif dia == "todos":
+      print(segunda, terça, quarta, quinta, sexta)
+      break
+    elif dia == "sair":
+      break
+    else:
+      print("\nDia inválido, tente novamente. \n")
+
+elif num == "notas":
+  while True:
+    print("\nInforme as notas bimestrais:\n(nota de corte: 6.00)\n")
+    b1 = float(input("Primeira nota: "))
+    b2 = float(input("Segunda nota: "))
+    b3 = float(input("Terceira nota: "))
+    b4 = float(input("Quarta nota: "))
+    total = (b1 + b2 + b3 + b4) / 4
+    if total >= 6:
+      print(f"\nO aluno foi APROVADO com média total de: {total:.2f} pontos.")
+    else:
+      print(f"\nO aluno foi REPROVADO com média de: {total:.2f} pontos.")
+elif num == "sair":
+  print("")
+else:
+  print("Digite um comando válido.")
